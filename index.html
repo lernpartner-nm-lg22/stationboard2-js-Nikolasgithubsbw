@@ -11,26 +11,28 @@
 </head>
 
 <body>
-    <div class="table-fixed-head">
+    <div class="container">
+        <div class="search-section">
+            <div class="input-container">
+                <label for="from">Von</label>
+                <input type="text" id="from" placeholder="Station eingeben...">
+            </div>
+            <div class="input-container">
+                <label for="to">Nach</label>
+                <input type="text" id="to" placeholder="Zielstation eingeben...">
+            </div>
+            <button id="searchButton" class="search-btn">Suche</button>
+        </div>
 
-        <table id="time-table">
-            <tbody id="table-body">
-                <!-- hier erscheint die Tabelle -->
-            </tbody>
-            <thead>
-                <tr>
-                    <th>Uhrzeit</th>
-                    <th>Richtung</th>
-                    <th>Gleis</th>
-                </tr>
-            </thead>
-            <caption>
-                <h1>Stationboard <span id="stationname"></span></h1>
-                <input type="text" id="station" />
-                <button>ok</button>
-            </caption>
-        </table>
+        <div class="results-section">
+            <h2>Verbindungen</h2>
+            <div id="results" class="result-cards"></div>
 
+            <!-- Hier wird der Button für "Frühere Verbindungen" platziert -->
+            <button class="previous-connections-btn" id="loadPreviousConnections" style="display:none;">
+                Frühere Verbindungen anzeigen
+            </button>
+        </div>
     </div>
 </body>
 

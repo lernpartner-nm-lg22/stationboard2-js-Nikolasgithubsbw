@@ -1,69 +1,139 @@
-@font-face {
-  font-family: SBB;
-  src: url("https://cdn.app.sbb.ch/fonts/v1_6_subset/SBBWeb-Roman.woff2") format("woff2"), url("https://cdn.app.sbb.ch/fonts/v1_6_subset/SBBWeb-Roman.woff") format("woff");
-  font-display: fallback;
-  font-weight: 400;
-}
-@font-face {
-  font-family: SBB;
-  src: url("https://cdn.app.sbb.ch/fonts/v1_6_subset/SBBWeb-Bold.woff2") format("woff2"), url("https://cdn.app.sbb.ch/fonts/v1_6_subset/SBBWeb-Bold.woff") format("woff");
-  font-display: swap;
-  font-weight: 700;
-}
-@font-face {
-  font-family: SBB;
-  src: url("https://cdn.app.sbb.ch/fonts/v1_6_subset/SBBWeb-Light.woff2") format("woff2"), url("https://cdn.app.sbb.ch/fonts/v1_6_subset/SBBWeb-Light.woff") format("woff");
-  font-display: swap;
-  font-weight: 300;
-}
-:root {
-    font-family: SBB;
-    color:white;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background-image: url(/assets/station.bmp);
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-#select {
-    text-align: center;
-}
-.table-fixed-head {
-    position: fixed;
-    top:10vh;
-    left:10vw;
+.container {
     width: 80vw;
-    max-height: 80vh;
-    overflow-y: scroll;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-table {
-    width: 100%;
-    table-layout: fixed;
-    background-color: blue;
-    opacity: 80%;
-    backdrop-filter: blur(10px);
-    border-collapse: collapse;
+.search-section {
+    display: flex;
+    flex-direction: column; /* Ändert das Layout der Suche zu einer Spalte */
+    align-items: center; /* Zentriert die Elemente horizontal */
+    margin-bottom: 20px;
 }
-thead th,
-caption {
-    position: sticky;
-    background-color: blue;
-    border: 3px solid white;
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* 100% Breite für die Eingabefelder */
+    margin-bottom: 10px; /* Abstand nach unten für beide Eingabefelder */
 }
-caption {
-    top:0;
+
+.input-container label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
 }
-thead th {
-    top:70px;
-}
-tbody {
-    overflow-y: scroll;
-}
-th,td {
-    border:3px solid white;
+
+.input-container input {
     padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    width: 100%; /* Eingabefelder füllen die gesamte Breite */
+}
+
+.input-container input:focus {
+    outline: none;
+    border-color: #333;
+}
+
+/* Positioniert den Button unterhalb der Eingabefelder und macht ihn breiter */
+.search-btn {
+    padding: 12px 0;
+    width: 50%; /* Button ist 50% der Breite */
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center; /* Text im Button zentrieren */
+}
+
+.search-btn:hover {
+    background-color: #555;
+}
+
+/* Stil für den "Frühere Verbindungen" Button */
+.previous-connections-btn {
+    display: block;
+    margin: 20px auto; /* Zentriert den Button horizontal */
+    font-size: 16px;
+    color: red;
+    text-decoration: underline; /* Unterstreicht den Text */
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.previous-connections-btn:hover {
+    color: darkred; /* Farbe bei Hover ändern */
+}
+
+.results-section {
+    margin-top: 30px;
+}
+
+.results-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.result-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.result-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.result-card:hover {
+    background-color: #f1f1f1;
+}
+
+.result-card .time,
+.result-card .direction,
+.result-card .platform {
+    flex: 1;
+}
+
+.result-card .time {
+    font-weight: bold;
+    color: #333;
+}
+
+.result-card .platform {
+    text-align: right;
 }
